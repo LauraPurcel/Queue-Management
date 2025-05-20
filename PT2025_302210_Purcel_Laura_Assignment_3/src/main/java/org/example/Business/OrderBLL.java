@@ -39,9 +39,10 @@ public class OrderBLL {
      * @throws IllegalArgumentException if the order fails validation.
      */
     public Order insert(Order order) {
-        for (Validator<Order> validator : validators) {
-            validator.validate(order);
-        }
+//        for (Validator<Order> validator : validators) {
+//            validator.validate(order);
+//        }
+        validators.forEach(v -> v.validate(order));
         Product product = productDAO.findById(order.getProductId());
         product.setQuantity(product.getQuantity() - order.getQuantity());
         productDAO.update(product);

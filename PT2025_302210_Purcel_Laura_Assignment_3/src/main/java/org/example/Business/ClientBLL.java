@@ -36,9 +36,10 @@ public class ClientBLL {
      * @throws IllegalArgumentException if validation fails.
      */
     public Client insertClient(Client client) {
-        for (Validator<Client> v : validators) {
-            v.validate(client);
-        }
+//        for (Validator<Client> v : validators) {
+//            v.validate(client);
+//        }
+        validators.forEach(v -> v.validate(client));
         return clientDAO.insert(client);
     }
 
@@ -50,9 +51,10 @@ public class ClientBLL {
      * @throws IllegalArgumentException if validation fails.
      */
     public Client updateClient(Client client) {
-        for (Validator<Client> v : validators) {
-            v.validate(client);
-        }
+//        for (Validator<Client> v : validators) {
+//            v.validate(client);
+//        }
+        validators.forEach(v -> v.validate(client));
         return clientDAO.update(client);
     }
 

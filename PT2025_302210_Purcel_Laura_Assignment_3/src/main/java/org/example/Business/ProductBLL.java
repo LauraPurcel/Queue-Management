@@ -35,9 +35,10 @@ public class ProductBLL {
      * @throws IllegalArgumentException if validation fails.
      */
     public Product insertProduct(Product product) {
-        for (Validator<Product> v : validators) {
-            v.validate(product);
-        }
+//        for (Validator<Product> v : validators) {
+//            v.validate(product);
+//        }
+        validators.forEach(v -> v.validate(product));
         return productDAO.insert(product);
     }
 
@@ -49,9 +50,10 @@ public class ProductBLL {
      * @throws IllegalArgumentException if validation fails.
      */
     public Product updateProduct(Product product) {
-        for (Validator<Product> v : validators) {
-            v.validate(product);
-        }
+//        for (Validator<Product> v : validators) {
+//            v.validate(product);
+//        }
+        validators.forEach(v -> v.validate(product));
         return productDAO.update(product);
     }
 

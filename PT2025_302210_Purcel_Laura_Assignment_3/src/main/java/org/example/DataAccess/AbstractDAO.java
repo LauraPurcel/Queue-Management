@@ -73,16 +73,23 @@ public class AbstractDAO<T> {
      * @return the object of type T, or null if not found
      */
     public T findById(int id) {
-        try (Connection connection = ConnectionFactory.getConnection();
-             PreparedStatement statement = connection.prepareStatement(createSelectQuery("id"))) {
-
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        String query = createSelectQuery("id");
+        try {
+            connection = ConnectionFactory.getConnection();
+            statement = connection.prepareStatement(query);
             statement.setInt(1, id);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                List<T> list = createObjects(resultSet);
-                return list.isEmpty() ? null : list.get(0);
-            }
+            resultSet = statement.executeQuery();
+
+            return createObjects(resultSet).get(0);
         } catch (SQLException e) {
             LOGGER.log(Level.WARNING, type.getName() + "DAO:findById " + e.getMessage());
+        } finally {
+            ConnectionFactory.close(resultSet);
+            ConnectionFactory.close(statement);
+            ConnectionFactory.close(connection);
         }
         return null;
     }

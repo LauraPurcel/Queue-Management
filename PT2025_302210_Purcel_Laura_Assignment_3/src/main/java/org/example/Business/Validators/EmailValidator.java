@@ -12,5 +12,4 @@ public class EmailValidator implements Validator<Client> {
             throw new IllegalArgumentException("Email is not a valid email!");
         }
     }
-
 }
