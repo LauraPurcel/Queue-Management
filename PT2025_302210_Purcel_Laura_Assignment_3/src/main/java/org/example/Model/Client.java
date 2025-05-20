@@ -1,5 +1,7 @@
 package org.example.Model;
-
+/**
+ * Represents a client entity with basic personal details.
+ */
 public class Client {
     private int id;
     private String name;
@@ -7,44 +9,16 @@ public class Client {
     private String email;
     private int age;
 
-    public int getAge() {
-        return age;
+    public Client() {
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public Client(int age, String email, String address, String name, int id) {
+    public Client(int id, String name, String address, String email, int age) {
+        super();
         this.age = age;
         this.email = email;
         this.address = address;
         this.name = name;
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getId() {
@@ -55,4 +29,46 @@ public class Client {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

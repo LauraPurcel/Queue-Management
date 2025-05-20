@@ -1,20 +1,36 @@
 package org.example.Model;
 
 import java.time.LocalDateTime;
-
+/**
+ * Represents an order placed by a client for a specific product at a given time.
+ */
 public class Order {
     private int id;
     private int clientId;
     private int productId;
     private LocalDateTime orderDate;
     private int quantity;
+    public Order(){
 
+    }
     public Order(int id, int clientId, int productId, LocalDateTime orderDate, int quantity) {
+        super();
         this.id = id;
         this.clientId = clientId;
         this.productId = productId;
         this.orderDate = orderDate;
         this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", clientId=" + clientId +
+                ", productId=" + productId +
+                ", orderDate=" + orderDate +
+                ", quantity=" + quantity +
+                '}';
     }
 
     public int getId() {
