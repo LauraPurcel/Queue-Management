@@ -53,6 +53,6 @@ At the end of each simulation, the system computes and displays key performance 
 
 ### Testing Scenarios
 The system has been validated using the following mandatory input data sets:
-1. [cite_start]**Test 1**: $N=4$ clients, $Q=2$ queues (Basic functionality and logic verification)[cite: 3].
-2. [cite_start]**Test 2**: $N=50$ clients, $Q=5$ queues (Medium-scale scalability testing)[cite: 3].
-3. [cite_start]**Test 3**: $N=1000$ clients, $Q=20$ queues (High-load stress testing for synchronization and performance)[cite: 3].
+1. **Test 1**: N=4 clients, Q=2 queues
+2. **Test 2**: N=50 clients, Q=5 queues
+3. **Test 3**: N=1000 clients, Q=20 queues
